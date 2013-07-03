@@ -1,4 +1,6 @@
 Weby
 ====
 
-Weby is an python script checking if etouchmenu.com is up 
+Weby is a python script checking if etouchmenu.com is up 
+
+cron job :  0 * * * *
