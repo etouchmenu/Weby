@@ -40,17 +40,16 @@ def sendEmail():
 
     print >> log, message
     # Send the mail
-    # server = smtplib.SMTP(SERVER, 587)
-    # print >> log, currTime() + "connected"
-
     try:
+        server = smtplib.SMTP(SERVER, 587)
+        print >> log, currTime() + "connected"
         server.set_debuglevel(1)
         print >> log, server.ehlo()
         print >> log, server.starttls()
         print >> log, server.ehlo()
         print >> log, server.login(USERNAME, PASSWORD)
-        # print >> log, server.sendmail(FROM, TO, message)
-        # print >> log, server.quit()
+        print >> log, server.sendmail(FROM, TO, message)
+        print >> log, server.quit()
     except Exception:
         print >> log, traceback.format_exc()
 
@@ -70,7 +69,7 @@ else:
     browser = Browser()
     browser.visit(WEBSITE)
 
-    if browser.title == 'eTouchMenuasdfasdf - Digital asdfasfTable-Top Menus':
+    if browser.title == 'eTouchMenu - Digital Table-Top Menus':
         print >> log, currTime() + botName() + "Yes, the official website was found!"
         browser.quit()
     else:
